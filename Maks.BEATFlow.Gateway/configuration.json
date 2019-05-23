@@ -1,0 +1,52 @@
+﻿{
+  "ReRoutes": [
+    {
+
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 50186
+        }
+      ],
+      "UpstreamPathTemplate": "/BEATAuth/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/{Everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 54985
+        }
+      ],
+      "UpstreamPathTemplate": "/BFlowData/{Everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "BEATFLOWKEY",
+        "AllowedScopes": []
+      }
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/{Everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44381
+        }
+      ],
+      "UpstreamPathTemplate": "/BFlowDocuments/{Everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    }
+  ],
+    "GlobalConfiguration": {
+        "RequestIdKey": "OcRequestId",
+        "AdministrationPath": "/administration"
+    }
+}
